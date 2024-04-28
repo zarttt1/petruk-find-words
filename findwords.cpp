@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm)
+#include <algorithm>
 
 using namespace std;
 
@@ -29,7 +29,7 @@ for (int i = 0; i <= rows - word.size(); i++){
       vertical += matrix[i + k][j];
     }
 
-      transform (vertical.begin(), vertical.end(), vertical begin(), :: tolower);
+      transform (vertical.begin(), vertical.end(), vertical.begin(), :: tolower);
         if (vertical == word){
           return true;
         }
@@ -81,7 +81,7 @@ for (int i = 0; i <= rows - word.size(); i++){
         }
     }
 
-    // Search diagonally ( dari kiri bawah ke kanan atas)
+    // Mencari diagonal ( dari kiri bawah ke kanan atas)
     for (int i = rows - 1; i >= word.size() - 1; i--) {
         for (int j = 0; j <= cols - word.size(); j++) {
             string diagonal;
@@ -97,4 +97,51 @@ for (int i = 0; i <= rows - word.size(); i++){
     }
 
     return false;
+}
+
+int main() {
+    vector<string> matrix = {
+        "AAFLKHPFSSUFICICLESGNΝΗ",
+        "SFVREOMRWLRTTSXOQQNAOAO",
+        "QEIAIFXAEIRFVFYSXIMINJI",
+        "WSTRLGOCAPBIAFIWIWTUACM", 
+        "FEYAEAISTPCRLUJKOAKCERS",
+        "RVDAKPNDEEHDEMSNCKKFOAH",
+        "MRNEDSLCRRIWNRSAAFITMMI",
+        "YAAECIEAHYMOTAVHRSSTISB",
+        "RJSEWELCCENNIETOHWSGLSE",
+        "ATANYYMOIEESNESIOIRELTR",
+        "UTENEWEBHMYBETNNRAIEBEN",
+        "RCLKUTEAEQJLSGSHTGDSKOA",
+        "BHOICATNRRSDDECEHOOLGIT",
+        "ENSLUARIRSETALOCOHCTOHE",
+        "FZFUDQJYMADOYIWYGLOVESU",
+        "TEKALFWONSNAEBMIEJTZNTG",
+        "ESWPOSJXEUTUYOZUWAKEZHM",
+        "KZUHBPEZEERFLMSNOWBALLH",
+        "NSNOWBOARDYTVWYCLEVOHSA",
+        "ACOCROLGZIYCHODRAZZILBI",
+        "LBVKKWANZAAQINWOLPWONSL",
+        "BFREEZINGRAINSLILGTMELT",
+        "HQPYLWHFMNFFUFPSWXNUMMV",
+    };
+
+    vector <string> words;
+
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++){
+    string word;
+    cin >> word;
+    words.push_back(word);
+    }
+
+    for (const string& word : words){
+        if (searchWord (matrix, word)){
+            cout << "Ada" << endl;
+        } else {
+            cout << "Tidak ada" << endl;
+        }
+    }
+return 0;
 }
